@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A3BB71E51AC2652D0091FE6D /* UINavigationController+MEDAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BB71E41AC2652D0091FE6D /* UINavigationController+MEDAdditions.m */; };
+		A3BB71E81AC2667E0091FE6D /* NSArray+MEDAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BB71E71AC2667E0091FE6D /* NSArray+MEDAdditions.m */; };
+		A3BB71EB1AC2671A0091FE6D /* UIImage+MEDAdditons.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BB71EA1AC2671A0091FE6D /* UIImage+MEDAdditons.m */; };
 		D2E1BF2C1ABAD5E50083F655 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D2E1BF2B1ABAD5E50083F655 /* main.m */; };
 		D2E1BF2F1ABAD5E50083F655 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D2E1BF2E1ABAD5E50083F655 /* AppDelegate.m */; };
 		D2E1BF321ABAD5E50083F655 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2E1BF311ABAD5E50083F655 /* ViewController.m */; };
@@ -33,6 +36,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A3BB71E31AC2652D0091FE6D /* UINavigationController+MEDAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+MEDAdditions.h"; sourceTree = "<group>"; };
+		A3BB71E41AC2652D0091FE6D /* UINavigationController+MEDAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+MEDAdditions.m"; sourceTree = "<group>"; };
+		A3BB71E61AC2667E0091FE6D /* NSArray+MEDAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+MEDAdditions.h"; sourceTree = "<group>"; };
+		A3BB71E71AC2667E0091FE6D /* NSArray+MEDAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+MEDAdditions.m"; sourceTree = "<group>"; };
+		A3BB71E91AC2671A0091FE6D /* UIImage+MEDAdditons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+MEDAdditons.h"; sourceTree = "<group>"; };
+		A3BB71EA1AC2671A0091FE6D /* UIImage+MEDAdditons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+MEDAdditons.m"; sourceTree = "<group>"; };
 		D2E1BF261ABAD5E50083F655 /* MEDCategoriesDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MEDCategoriesDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2E1BF2A1ABAD5E50083F655 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D2E1BF2B1ABAD5E50083F655 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -143,6 +152,8 @@
 			children = (
 				D2E1BF501ABAD6190083F655 /* UIColor+MEDAdditions.h */,
 				D2E1BF511ABAD6190083F655 /* UIColor+MEDAdditions.m */,
+				A3BB71E61AC2667E0091FE6D /* NSArray+MEDAdditions.h */,
+				A3BB71E71AC2667E0091FE6D /* NSArray+MEDAdditions.m */,
 				D2E1BF531ABAD62D0083F655 /* NSObject+MEDAdditions.h */,
 				D2E1BF541ABAD62D0083F655 /* NSObject+MEDAdditions.m */,
 				D2E1BF561ABAD63B0083F655 /* NSString+MEDAdditions.h */,
@@ -153,6 +164,10 @@
 				D2E1BF5D1ABAD6570083F655 /* UIView+MEDAdditions.m */,
 				D2E1BF5F1ABAD6850083F655 /* UIViewController+MEDAdditions.h */,
 				D2E1BF601ABAD6850083F655 /* UIViewController+MEDAdditions.m */,
+				A3BB71E31AC2652D0091FE6D /* UINavigationController+MEDAdditions.h */,
+				A3BB71E41AC2652D0091FE6D /* UINavigationController+MEDAdditions.m */,
+				A3BB71E91AC2671A0091FE6D /* UIImage+MEDAdditons.h */,
+				A3BB71EA1AC2671A0091FE6D /* UIImage+MEDAdditons.m */,
 			);
 			name = MEDCategories;
 			path = ../../MEDCategories;
@@ -259,13 +274,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2E1BF581ABAD63B0083F655 /* NSString+MEDAdditions.m in Sources */,
+				A3BB71E81AC2667E0091FE6D /* NSArray+MEDAdditions.m in Sources */,
 				D2E1BF611ABAD6850083F655 /* UIViewController+MEDAdditions.m in Sources */,
 				D2E1BF5E1ABAD6570083F655 /* UIView+MEDAdditions.m in Sources */,
 				D2E1BF5B1ABAD6490083F655 /* NSURL+MEDAdditions.m in Sources */,
 				D2E1BF321ABAD5E50083F655 /* ViewController.m in Sources */,
 				D2E1BF2F1ABAD5E50083F655 /* AppDelegate.m in Sources */,
 				D2E1BF521ABAD6190083F655 /* UIColor+MEDAdditions.m in Sources */,
+				A3BB71EB1AC2671A0091FE6D /* UIImage+MEDAdditons.m in Sources */,
 				D2E1BF551ABAD62D0083F655 /* NSObject+MEDAdditions.m in Sources */,
+				A3BB71E51AC2652D0091FE6D /* UINavigationController+MEDAdditions.m in Sources */,
 				D2E1BF2C1ABAD5E50083F655 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -457,6 +475,7 @@
 				D2E1BF4B1ABAD5E60083F655 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D2E1BF4C1ABAD5E60083F655 /* Build configuration list for PBXNativeTarget "MEDCategoriesDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -465,6 +484,7 @@
 				D2E1BF4E1ABAD5E60083F655 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
