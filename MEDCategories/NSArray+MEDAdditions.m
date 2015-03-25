@@ -19,6 +19,10 @@
 
 - (NSArray *)med_uniqueElementsWithKey:(NSString *)key
 {
+    if (!key || key.length == 0) {
+        return @[];
+    }
+
     NSString *distinctKeyPath = [NSString stringWithFormat:@"@distinctUnionOfObjects.%@", key];
     return [self valueForKeyPath:distinctKeyPath];
 }
@@ -27,9 +31,13 @@
 
 - (NSArray *)med_arraySortedByKey:(NSString *)key ascending:(BOOL)ascending
 {
+    if (!key || key.length == 0) {
+        return @[];
+    }
+
     NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:key
-                                        ascending:ascending
-                                        selector:@selector(localizedCaseInsensitiveCompare:)];
+                                                                     ascending:ascending
+                                                                      selector:@selector(localizedCaseInsensitiveCompare:)];
     return [self sortedArrayUsingDescriptors:@[sortDescriptor]];
 }
 
