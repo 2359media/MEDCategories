@@ -7,12 +7,24 @@
 //
 
 #import "UIViewController+MEDAdditions.h"
+#import <Masonry.h>
+#import "NSObject+MEDAdditions.h"
 
 @implementation UIViewController (MEDAdditions)
+
++ (instancetype)med_instantiateFromStoryboardNamed:(NSString *)name {
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:name bundle:nil];
+    return [storyboard instantiateViewControllerWithIdentifier:[self med_className]];
+}
 
 - (void)med_addChildViewController:(UIViewController *)childVC containerView:(UIView *)containerView {
     [self addChildViewController:childVC];
     [containerView addSubview:childVC.view];
+
+    [childVC.view mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(containerView);
+    }];
+
     [childVC didMoveToParentViewController:self];
 }
 

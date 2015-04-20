@@ -10,7 +10,9 @@
 
 @interface UIViewController (MEDAdditions)
 
++ (instancetype)med_instantiateFromStoryboardNamed:(NSString *)name;
 - (void)med_addChildViewController:(UIViewController *)childVC containerView:(UIView *)containerView;
 - (void)med_removeFromParentViewController;
+
 
 @end
