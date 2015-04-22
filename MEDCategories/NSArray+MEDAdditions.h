@@ -21,4 +21,12 @@
 - (NSArray *)med_compare;
 - (NSArray *)med_localizedCompare;
 
+#pragma mark - RX
+- (void)med_each:(void (^)(id object))block;
+- (void)med_eachWithIndex:(void (^)(id object, NSUInteger index))block;
+- (NSArray *)med_map:(id (^)(id object))block;
+- (NSArray *)med_filter:(BOOL (^)(id object))block;
+- (NSArray *)med_reject:(BOOL (^)(id object))block;
+- (id)med_detect:(BOOL (^)(id object))block;
+
 @end
