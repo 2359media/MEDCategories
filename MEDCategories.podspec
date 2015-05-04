@@ -12,6 +12,6 @@ Pod::Spec.new do |s|
   s.frameworks     = 'UIKit', 'Foundation'
   s.source_files   = 'MEDCategories/*.{h,m}'
   
-  s.dependency      'Mantle', '~> 1.5'
-  s.dependency      'Masonry', '~> 0.5'
+  s.dependency      'Mantle'
+  s.dependency      'Masonry'
 end
