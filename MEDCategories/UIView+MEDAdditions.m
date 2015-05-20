@@ -15,4 +15,13 @@
     return [UINib nibWithNibName:[self med_className] bundle:nil];
 }
 
+- (UIImage *)med_toImage {
+    UIGraphicsBeginImageContextWithOptions(self.bounds.size, NO, 0);
+    [self drawViewHierarchyInRect:self.bounds afterScreenUpdates:NO];
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+
+    return image;
+}
+
 @end

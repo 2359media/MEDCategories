@@ -13,4 +13,7 @@
 + (instancetype)med_modelFromJSONDictionary:(NSDictionary *)JSONDictionary;
 + (NSArray *)med_modelsFromJSONArray:(NSArray *)JSONArray;
 
+- (void)med_mergeWithDictionary:(NSDictionary *)dictionary;
+- (void)med_mergeValuesForKeysFromModelIgnoringNil:(MTLModel *)model;
+
 @end

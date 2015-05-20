@@ -18,4 +18,24 @@
     return [MTLJSONAdapter modelsOfClass:[self class] fromJSONArray:JSONArray error:nil];
 }
 
+- (void)med_mergeWithDictionary:(NSDictionary *)dictionary {
+    MTLModel *model = [[self class] med_modelFromJSONDictionary:dictionary];
+    return [self med_mergeValuesForKeysFromModelIgnoringNil:model];
+}
+
+- (void)med_mergeValuesForKeysFromModelIgnoringNil:(MTLModel *)model {
+    NSSet *propertyKeys = model.class.propertyKeys;
+    for (NSString *key in self.class.propertyKeys) {
+        if (![propertyKeys containsObject:key]) {
+            continue;
+        }
+
+        if (![model valueForKey:key] && [[model valueForKey:key] isKindOfClass:[NSNull class]]) {
+            continue;
+        }
+
+        [self mergeValueForKey:key fromModel:model];
+    }
+}
+
 @end

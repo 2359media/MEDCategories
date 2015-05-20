@@ -96,4 +96,17 @@
     return nil;
 }
 
+- (id)med_reduce:(id (^)(id accumulator, id object))block {
+    return [self med_reduce:nil withBlock:block];
+}
+
+- (id)med_reduce:(id)initial withBlock:(id (^)(id accumulator, id object))block {
+    id accumulator = initial;
+
+    for(id object in self)
+        accumulator = accumulator ? block(accumulator, object) : object;
+
+    return accumulator;
+}
+
 @end

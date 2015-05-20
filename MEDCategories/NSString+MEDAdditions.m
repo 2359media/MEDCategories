@@ -14,4 +14,58 @@
     return [NSURL URLWithString:self];
 }
 
+- (BOOL)med_containsString:(NSString *) string {
+    NSRange range = [self rangeOfString:string options:NSCaseInsensitiveSearch];
+    return range.location != NSNotFound;
+}
+
+- (BOOL)med_isEmail {
+    BOOL stricterFilter = NO;
+
+    NSString *stricterFilterString = @"[A-Z0-9a-z\\._%+-]+@([A-Za-z0-9-]+\\.)+[A-Za-z]{2,4}";
+    NSString *laxString = @".+@([A-Za-z0-9-]+\\.)+[A-Za-z]{2}[A-Za-z]*";
+    NSString *emailRegex = stricterFilter ? stricterFilterString : laxString;
+    NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
+
+    return [emailTest evaluateWithObject:self];
+}
+
+- (NSString *)med_fixedLineBreakString {
+    return [self stringByReplacingOccurrencesOfString:@"\\n" withString:@"\n"];
+}
+
+- (NSString *)med_percentEscapedQueryString {
+    NSStringEncoding stringEncoding = NSUTF8StringEncoding;
+
+    static NSString * const kAFCharactersToBeEscaped = @":/?&=;+!@#$()',*";
+    static NSString * const kAFCharactersToLeaveUnescaped = @"[].";
+
+    return (__bridge_transfer NSString *)CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault, (__bridge CFStringRef)self, (__bridge CFStringRef)kAFCharactersToLeaveUnescaped, (__bridge CFStringRef)kAFCharactersToBeEscaped, CFStringConvertNSStringEncodingToEncoding(stringEncoding));
+}
+
+- (NSDictionary *)med_toParams {
+    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
+    if (self) {
+        NSScanner *parameterScanner = [[NSScanner alloc] initWithString:self];
+        NSString *name = nil;
+        NSString *value = nil;
+
+        while (![parameterScanner isAtEnd]) {
+            name = nil;
+            [parameterScanner scanUpToString:@"=" intoString:&name];
+            [parameterScanner scanString:@"=" intoString:NULL];
+
+            value = nil;
+            [parameterScanner scanUpToString:@"&" intoString:&value];
+            [parameterScanner scanString:@"&" intoString:NULL];
+
+            if (name && value) {
+                parameters[[name stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding]] = [value stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+            }
+        }
+    }
+    
+    return parameters;
+}
+
 @end

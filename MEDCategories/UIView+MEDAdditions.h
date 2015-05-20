@@ -11,5 +11,6 @@
 @interface UIView (MEDAdditions)
 
 + (UINib *)med_nib;
+- (UIImage *)med_toImage;
 
 @end

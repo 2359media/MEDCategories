@@ -28,5 +28,7 @@
 - (NSArray *)med_filter:(BOOL (^)(id object))block;
 - (NSArray *)med_reject:(BOOL (^)(id object))block;
 - (id)med_detect:(BOOL (^)(id object))block;
+- (id)med_reduce:(id (^)(id accumulator, id object))block;
+- (id)med_reduce:(id)initial withBlock:(id (^)(id accumulator, id object))block;
 
 @end

@@ -11,5 +11,10 @@
 @interface NSString (MEDAdditions)
 
 - (NSURL *)med_toURL;
+- (BOOL)med_containsString:(NSString *)string;
+- (BOOL)med_isEmail;
+- (NSString *)med_fixedLineBreakString;
+- (NSString *)med_percentEscapedQueryString;
+- (NSDictionary *)med_toParams;
 
 @end
