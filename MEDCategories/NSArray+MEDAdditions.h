@@ -21,6 +21,9 @@
 - (NSArray *)med_compare;
 - (NSArray *)med_localizedCompare;
 
+// shuffle
+- (NSArray *)med_shuffle;
+
 #pragma mark - RX
 - (void)med_each:(void (^)(id object))block;
 - (void)med_eachWithIndex:(void (^)(id object, NSUInteger index))block;
@@ -30,5 +33,11 @@
 - (id)med_detect:(BOOL (^)(id object))block;
 - (id)med_reduce:(id (^)(id accumulator, id object))block;
 - (id)med_reduce:(id)initial withBlock:(id (^)(id accumulator, id object))block;
+
+@end
+
+@interface NSMutableArray (MEDAdditions)
+
+- (void)med_shuffle;
 
 @end
