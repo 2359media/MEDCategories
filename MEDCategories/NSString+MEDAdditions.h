@@ -16,5 +16,6 @@
 - (NSString *)med_fixedLineBreakString;
 - (NSString *)med_percentEscapedQueryString;
 - (NSDictionary *)med_toParams;
+- (NSAttributedString *)med_htmlAttributedString;
 
 @end

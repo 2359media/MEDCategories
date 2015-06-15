@@ -68,4 +68,20 @@
     return parameters;
 }
 
+- (NSAttributedString *)med_htmlAttributedString
+{
+    if (!self || [self length] == 0) {
+        return nil;
+    }
+    
+    NSDictionary *option = @{ NSDocumentTypeDocumentAttribute : NSHTMLTextDocumentType };
+    NSError *attributedError;
+    NSData *stringData = [self dataUsingEncoding:NSUTF16StringEncoding];
+    NSAttributedString *htmlAttributedString = [[NSAttributedString alloc] initWithData:stringData
+                                                                                options:option
+                                                                     documentAttributes:nil
+                                                                                  error:&attributedError];
+    return htmlAttributedString;
+}
+
 @end
