@@ -53,6 +53,13 @@
     return [self sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
 }
 
+- (NSArray *)med_shuffle
+{
+    NSMutableArray *mutable = [self mutableCopy];
+    [mutable med_shuffle];
+    return [mutable copy];
+}
+
 #pragma mark - RX
 - (void)med_each:(void (^)(id object))block {
     [self enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
@@ -107,6 +114,21 @@
         accumulator = accumulator ? block(accumulator, object) : object;
 
     return accumulator;
+}
+
+@end
+
+@implementation NSMutableArray (MEDAdditions)
+
+- (void)med_shuffle
+{
+    const NSUInteger count = self.count;
+    for (NSUInteger i = 0; i < count - 1; ++i) {
+        const NSUInteger n = arc4random_uniform((UInt32)count - i) + i;
+        if (i != n) {
+            [self exchangeObjectAtIndex:i withObjectAtIndex:n];
+        }
+    }
 }
 
 @end
