@@ -17,7 +17,11 @@
 
 - (UIImage *)med_toImage {
     UIGraphicsBeginImageContextWithOptions(self.bounds.size, NO, 0);
-    [self drawViewHierarchyInRect:self.bounds afterScreenUpdates:NO];
+    
+    if (![self drawViewHierarchyInRect:self.bounds afterScreenUpdates:NO]) {
+        [self.layer renderInContext:UIGraphicsGetCurrentContext()];
+    }
+    
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
 
