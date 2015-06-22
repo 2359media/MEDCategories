@@ -60,6 +60,18 @@
     return [mutable copy];
 }
 
+- (NSArray *)med_reverse
+{
+    return [[self reverseObjectEnumerator] allObjects];
+}
+
+#pragma mark - Operator
+
+- (NSInteger)med_sum
+{
+    return [[self valueForKeyPath:@"@sum.self"] integerValue];
+}
+
 #pragma mark - RX
 - (void)med_each:(void (^)(id object))block {
     [self enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {

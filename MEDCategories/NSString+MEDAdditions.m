@@ -84,4 +84,17 @@
     return htmlAttributedString;
 }
 
+- (NSUInteger)med_wordCount
+{
+    NSScanner *scanner = [NSScanner scannerWithString:self];
+    NSCharacterSet *whiteSpace = [NSCharacterSet whitespaceAndNewlineCharacterSet];
+    
+    NSUInteger count = 0;
+    while ([scanner scanUpToCharactersFromSet:whiteSpace intoString:nil]) {
+        count++;
+    }
+    
+    return count;
+}
+
 @end

@@ -17,5 +17,6 @@
 - (NSString *)med_percentEscapedQueryString;
 - (NSDictionary *)med_toParams;
 - (NSAttributedString *)med_htmlAttributedString;
+- (NSUInteger)med_wordCount;
 
 @end

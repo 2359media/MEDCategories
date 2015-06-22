@@ -24,6 +24,13 @@
 // shuffle
 - (NSArray *)med_shuffle;
 
+// reversing
+- (NSArray *)med_reverse;
+
+#pragma mark - Operators
+
+- (NSInteger)med_sum;
+
 #pragma mark - RX
 - (void)med_each:(void (^)(id object))block;
 - (void)med_eachWithIndex:(void (^)(id object, NSUInteger index))block;
