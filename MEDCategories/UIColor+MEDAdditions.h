@@ -13,5 +13,6 @@
 + (UIColor *)med_colorWithHex:(CGFloat)hex;
 + (UIColor *)med_colorWithHexString:(NSString *)hexString;
 + (UIColor *)med_colorWithRed:(CGFloat)red green:(CGFloat)green blue:(CGFloat)blue;
++ (UIColor *)med_randomColor;
 
 @end

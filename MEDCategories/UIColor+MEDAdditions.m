@@ -8,6 +8,8 @@
 
 #import "UIColor+MEDAdditions.h"
 
+#define ARC4RANDOM_MAX      0x100000000
+
 @implementation UIColor (MEDAdditions)
 
 + (UIColor *)med_colorWithHexString:(NSString *)hexString {
@@ -55,6 +57,12 @@
                            green:green/255.0
                             blue:blue/255.0
                            alpha:1.0];
+}
+
++ (UIColor *)med_randomColor
+{
+    CGFloat randomHue = ((double)arc4random() / ARC4RANDOM_MAX);
+    return [UIColor colorWithHue:randomHue saturation:0.5 brightness:0.5 alpha:1];
 }
 
 @end
