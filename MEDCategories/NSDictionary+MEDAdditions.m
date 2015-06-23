@@ -83,4 +83,29 @@
     return omitted;
 }
 
+- (NSArray *)med_sortedKeysUsingComparator:(NSComparator)comparator
+{
+    return [self.allKeys sortedArrayUsingComparator:comparator];
+}
+
+- (NSArray *)med_sortedValuesUsingKeyComparator:(NSComparator)comparator
+{
+    NSMutableArray *returnValues = [NSMutableArray new];
+    [self med_enumerateSortedKeysAndObjectsUsingComparator:comparator usingBlock:^(id key, id value, BOOL *stop) {
+        [returnValues addObject:value];
+    }];
+    
+    return [returnValues copy];
+}
+
+- (void)med_enumerateSortedKeysAndObjectsUsingComparator:(NSComparator)comparator
+                                              usingBlock:(void (^)(id key, id value, BOOL *stop))block
+{
+    NSArray *sortedKeys = [self med_sortedKeysUsingComparator:comparator];
+    [sortedKeys enumerateObjectsUsingBlock:^(id key, NSUInteger idx, BOOL *stop) {
+        id value = [self objectForKey:key];
+        block(key, value, stop);
+    }];
+}
+
 @end

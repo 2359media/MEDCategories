@@ -13,6 +13,9 @@
 #pragma mark - Manipulation
 - (NSDictionary *)med_dictionaryByAddingEntriesFromDictionary:(NSDictionary *)dictionary;
 - (NSDictionary *)med_dictionaryByRemovingEntriesWithKeys:(NSSet *)keys;
+- (NSArray *)med_sortedKeysUsingComparator:(NSComparator)comparator;
+- (NSArray *)med_sortedValuesUsingKeyComparator:(NSComparator)comparator;
+- (void)med_enumerateSortedKeysAndObjectsUsingComparator:(NSComparator)comparator usingBlock:(void (^)(id key, id value, BOOL *stop))block;
 
 #pragma mark - RX
 - (void)med_each:(void (^)(id k, id v))block;
