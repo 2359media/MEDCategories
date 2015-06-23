@@ -4,19 +4,19 @@ PODS:
   - Mantle/extobjc (1.5.4)
   - Masonry (0.6.1)
   - MEDCategories (1.0):
-    - Mantle (~> 1.5)
-    - Masonry (~> 0.5)
+    - Mantle
+    - Masonry
 
 DEPENDENCIES:
   - MEDCategories (from `../MEDCategories.podspec`)
 
 EXTERNAL SOURCES:
   MEDCategories:
-    :path: ../MEDCategories.podspec
+    :path: "../MEDCategories.podspec"
 
 SPEC CHECKSUMS:
   Mantle: 60acd0cd363e27d945bda0a6b8e90577112d28f3
   Masonry: 4972309f2f134de9dd312f4dc4a21359b50e6caa
-  MEDCategories: 73672a31c65fabf50ca85dc31400fc890d88fba7
+  MEDCategories: 521a7cade2f01561c985ec0a99b9fff0569f9107
 
-COCOAPODS: 0.36.3
+COCOAPODS: 0.37.2
