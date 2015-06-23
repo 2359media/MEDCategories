@@ -11,6 +11,6 @@
 @interface NSData (MEDAdditions)
 
 - (NSString *)med_toBase64EncodedString;
-- (NSString *)md5;
+- (NSString *)med_md5;
 
 @end
