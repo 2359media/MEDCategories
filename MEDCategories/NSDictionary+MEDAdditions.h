@@ -10,6 +10,8 @@
 
 @interface NSDictionary (MEDAdditions)
 
+- (id)med_safeObjectForKey:(NSString *)key;
+
 #pragma mark - Manipulation
 - (NSDictionary *)med_dictionaryByAddingEntriesFromDictionary:(NSDictionary *)dictionary;
 - (NSDictionary *)med_dictionaryByRemovingEntriesWithKeys:(NSSet *)keys;

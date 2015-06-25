@@ -10,6 +10,16 @@
 
 @implementation NSDictionary (MEDAdditions)
 
+- (id)med_safeObjectForKey:(NSString *)key
+{
+    id safeObject = self[key];
+    if (!safeObject || [safeObject isKindOfClass:[NSNull class]]) {
+        return nil;
+    }
+
+    return safeObject;
+}
+
 #pragma mark - Manipulation
 - (NSDictionary *)med_dictionaryByAddingEntriesFromDictionary:(NSDictionary *)dictionary {
     NSMutableDictionary *result = [self mutableCopy];
