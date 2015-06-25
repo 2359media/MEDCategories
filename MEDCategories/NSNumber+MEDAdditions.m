@@ -70,4 +70,9 @@
     return [NSNumberFormatter localizedStringFromNumber:self numberStyle:NSNumberFormatterSpellOutStyle];
 }
 
+- (NSDate *)med_dateValue
+{
+    return [NSDate dateWithTimeIntervalSince1970:[self doubleValue]];
+}
+
 @end

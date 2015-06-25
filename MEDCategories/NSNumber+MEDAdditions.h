@@ -23,4 +23,6 @@
 - (NSString *)med_toStringWithScientificStyle;
 - (NSString *)med_toStringWithSpellOutStyle;
 
+- (NSDate *)med_dateValue;
+
 @end
