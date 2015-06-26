@@ -41,4 +41,16 @@
     return [self med_imageWithImage:image scaledToSize:newSize];
 }
 
+#pragma mark - Data Presentation
+
+- (NSData *)med_JPEGdataWithCompressionQuality:(CGFloat)quality
+{
+    return UIImageJPEGRepresentation(self, quality);
+}
+
+- (NSData *)med_PNGdata
+{
+    return UIImagePNGRepresentation(self);
+}
+
 @end
