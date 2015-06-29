@@ -29,6 +29,7 @@
 #import "UIView+MEDAutoLayout.h"
 #import "UIViewController+MEDAdditions.h"
 #import "UIWebView+MEDAdditions.h"
+#import "UIView+MEDAdditions.h"
 
 /// Mantle Categories
 #import "MTLModel+MEDAdditions"

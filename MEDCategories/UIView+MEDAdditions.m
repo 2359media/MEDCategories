@@ -24,4 +24,20 @@
     return image;
 }
 
+- (UIView *)med_findFirstResponder {
+    if (self.isFirstResponder) {
+        return self;
+    }
+    
+    for (UIView *subview in self.subviews) {
+        UIView *firstResponder = [subview med_findFirstResponder];
+        
+        if (firstResponder) {
+            return firstResponder;
+        }
+    }
+    
+    return nil;
+}
+
 @end
