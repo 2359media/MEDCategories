@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		92AA99D539E723A1FF67755E /* libPods-MEDCategoriesDemoTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EB66E97532E688DC5DF23C3 /* libPods-MEDCategoriesDemoTests.a */; };
+		D2D1EE581B42F54A0063ABDE /* UIColor+MEDHSLSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = D2D1EE571B42F54A0063ABDE /* UIColor+MEDHSLSpec.m */; };
+		D2D1EE5A1B42F55B0063ABDE /* UIColor+MEDAdditionsSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = D2D1EE591B42F55B0063ABDE /* UIColor+MEDAdditionsSpec.m */; };
 		D2E1BF2C1ABAD5E50083F655 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D2E1BF2B1ABAD5E50083F655 /* main.m */; };
 		D2E1BF2F1ABAD5E50083F655 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D2E1BF2E1ABAD5E50083F655 /* AppDelegate.m */; };
 		D2E1BF321ABAD5E50083F655 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2E1BF311ABAD5E50083F655 /* ViewController.m */; };
@@ -29,8 +32,13 @@
 
 /* Begin PBXFileReference section */
 		01DA281ACDD7C97EAFC17502 /* libPods-MEDCategoriesDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MEDCategoriesDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1EB66E97532E688DC5DF23C3 /* libPods-MEDCategoriesDemoTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MEDCategoriesDemoTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		36CA6E0F9FFAE1BF626B4D2E /* Pods-MEDCategoriesDemoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MEDCategoriesDemoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MEDCategoriesDemoTests/Pods-MEDCategoriesDemoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9805A34A5DD020AD7D9506E1 /* Pods-MEDCategoriesDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MEDCategoriesDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MEDCategoriesDemo/Pods-MEDCategoriesDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		AC615CE4842A2EEEFF3D8060 /* Pods-MEDCategoriesDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MEDCategoriesDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-MEDCategoriesDemo/Pods-MEDCategoriesDemo.release.xcconfig"; sourceTree = "<group>"; };
+		CA602F5973EFD1D5A773B4E7 /* Pods-MEDCategoriesDemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MEDCategoriesDemoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MEDCategoriesDemoTests/Pods-MEDCategoriesDemoTests.release.xcconfig"; sourceTree = "<group>"; };
+		D2D1EE571B42F54A0063ABDE /* UIColor+MEDHSLSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+MEDHSLSpec.m"; sourceTree = "<group>"; };
+		D2D1EE591B42F55B0063ABDE /* UIColor+MEDAdditionsSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+MEDAdditionsSpec.m"; sourceTree = "<group>"; };
 		D2E1BF261ABAD5E50083F655 /* MEDCategoriesDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MEDCategoriesDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2E1BF2A1ABAD5E50083F655 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D2E1BF2B1ABAD5E50083F655 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -59,6 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92AA99D539E723A1FF67755E /* libPods-MEDCategoriesDemoTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -114,6 +123,8 @@
 			children = (
 				D2E1BF451ABAD5E60083F655 /* MEDCategoriesDemoTests.m */,
 				D2E1BF431ABAD5E60083F655 /* Supporting Files */,
+				D2D1EE571B42F54A0063ABDE /* UIColor+MEDHSLSpec.m */,
+				D2D1EE591B42F55B0063ABDE /* UIColor+MEDAdditionsSpec.m */,
 			);
 			path = MEDCategoriesDemoTests;
 			sourceTree = "<group>";
@@ -130,6 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				01DA281ACDD7C97EAFC17502 /* libPods-MEDCategoriesDemo.a */,
+				1EB66E97532E688DC5DF23C3 /* libPods-MEDCategoriesDemoTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -139,6 +151,8 @@
 			children = (
 				9805A34A5DD020AD7D9506E1 /* Pods-MEDCategoriesDemo.debug.xcconfig */,
 				AC615CE4842A2EEEFF3D8060 /* Pods-MEDCategoriesDemo.release.xcconfig */,
+				36CA6E0F9FFAE1BF626B4D2E /* Pods-MEDCategoriesDemoTests.debug.xcconfig */,
+				CA602F5973EFD1D5A773B4E7 /* Pods-MEDCategoriesDemoTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -169,9 +183,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D2E1BF4C1ABAD5E60083F655 /* Build configuration list for PBXNativeTarget "MEDCategoriesDemoTests" */;
 			buildPhases = (
+				B39D2FC244C1E99A1DB5F259 /* Check Pods Manifest.lock */,
 				D2E1BF3B1ABAD5E60083F655 /* Sources */,
 				D2E1BF3C1ABAD5E60083F655 /* Frameworks */,
 				D2E1BF3D1ABAD5E60083F655 /* Resources */,
+				E94486BE14C0CB90503B931F /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -256,6 +272,21 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MEDCategoriesDemo/Pods-MEDCategoriesDemo-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		B39D2FC244C1E99A1DB5F259 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 		C29FCE13C18040D7B3BBF704 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -269,6 +300,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E94486BE14C0CB90503B931F /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MEDCategoriesDemoTests/Pods-MEDCategoriesDemoTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -288,7 +334,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2D1EE5A1B42F55B0063ABDE /* UIColor+MEDAdditionsSpec.m in Sources */,
 				D2E1BF461ABAD5E60083F655 /* MEDCategoriesDemoTests.m in Sources */,
+				D2D1EE581B42F54A0063ABDE /* UIColor+MEDHSLSpec.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -422,6 +470,7 @@
 		};
 		D2E1BF4D1ABAD5E60083F655 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 36CA6E0F9FFAE1BF626B4D2E /* Pods-MEDCategoriesDemoTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -441,6 +490,7 @@
 		};
 		D2E1BF4E1ABAD5E60083F655 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CA602F5973EFD1D5A773B4E7 /* Pods-MEDCategoriesDemoTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (

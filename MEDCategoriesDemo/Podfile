@@ -5,3 +5,7 @@ inhibit_all_warnings!
 target :MEDCategoriesDemo, :exclusive => true do
   pod 'MEDCategories', :path => '../MEDCategories.podspec'
 end
+
+target :MEDCategoriesDemoTests do
+    pod 'Kiwi', '~> 2.3'
+end

@@ -1,4 +1,5 @@
 PODS:
+  - Kiwi (2.3.1)
   - Mantle (2.0.2):
     - Mantle/extobjc (= 2.0.2)
   - Mantle/extobjc (2.0.2)
@@ -8,6 +9,7 @@ PODS:
     - Masonry
 
 DEPENDENCIES:
+  - Kiwi (~> 2.3)
   - MEDCategories (from `../MEDCategories.podspec`)
 
 EXTERNAL SOURCES:
@@ -15,6 +17,7 @@ EXTERNAL SOURCES:
     :path: ../MEDCategories.podspec
 
 SPEC CHECKSUMS:
+  Kiwi: f038a6c61f7a9e4d7766bff5717aa3b3fdb75f55
   Mantle: 967fd31ea0220890b2e76589198996b534bb3fb1
   Masonry: 4972309f2f134de9dd312f4dc4a21359b50e6caa
   MEDCategories: 521a7cade2f01561c985ec0a99b9fff0569f9107

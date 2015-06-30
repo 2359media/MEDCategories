@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import <UIColor+MEDAdditions.h>
 
 @interface ViewController ()
 
@@ -16,6 +17,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+    UIColor *color = [UIColor greenColor];
+    UIColor *darkenColor = [color med_darkenColor];
+    UIColor *lightenColor = [color med_lightenColor];
+
     // Do any additional setup after loading the view, typically from a nib.
 }
 
