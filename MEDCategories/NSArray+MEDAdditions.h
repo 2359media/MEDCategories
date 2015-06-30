@@ -30,6 +30,12 @@
 #pragma mark - Operators
 
 - (NSInteger)med_sum;
+- (NSArray *)med_shuffle;
+- (NSArray *)med_minus:(NSArray *)anotherArray;
+- (NSArray *)med_uniques;
++ (NSArray *)med_flatten:(NSArray *)arraysOfArray;
+- (NSArray *)med_groupedBy:(NSInteger)number;
+- (NSArray *)med_subarrayWithRange:(NSRange)range;
 
 #pragma mark - RX
 - (void)med_each:(void (^)(id object))block;
@@ -40,11 +46,5 @@
 - (id)med_detect:(BOOL (^)(id object))block;
 - (id)med_reduce:(id (^)(id accumulator, id object))block;
 - (id)med_reduce:(id)initial withBlock:(id (^)(id accumulator, id object))block;
-
-@end
-
-@interface NSMutableArray (MEDAdditions)
-
-- (void)med_shuffle;
 
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "UIColor+MEDAdditions.h"
+#import "UIColor+MEDHSL.h"
 
 #define ARC4RANDOM_MAX      0x100000000
 
@@ -63,6 +64,30 @@
 {
     CGFloat randomHue = ((double)arc4random() / ARC4RANDOM_MAX);
     return [UIColor colorWithHue:randomHue saturation:0.5 brightness:0.5 alpha:1];
+}
+
+- (UIColor *)med_darkenColor {
+    return [self med_darkenColor:0.2];
+}
+
+- (UIColor *)med_lightenColor {
+    return [self med_lightenColor:0.2];
+}
+
+- (UIColor *)med_darkenColor:(CGFloat)amount {
+    amount = MIN(1, MAX(0, amount));
+    MEDHSLColor *HSLColor = [self med_toHSLColor];
+    HSLColor.L = MIN(1 - amount, HSLColor.L - amount);
+
+    return [UIColor med_colorWithHSLColor:HSLColor];
+}
+
+- (UIColor *)med_lightenColor:(CGFloat)amount {
+    amount = MIN(1, MAX(0, amount));
+    MEDHSLColor *HSLColor = [self med_toHSLColor];
+    HSLColor.L = MAX(amount, HSLColor.L + amount);
+
+    return [UIColor med_colorWithHSLColor:HSLColor];
 }
 
 @end

@@ -18,5 +18,7 @@
 - (NSDictionary *)med_toParams;
 - (NSAttributedString *)med_htmlAttributedString;
 - (NSUInteger)med_wordCount;
+- (NSString *)med_percentEscapedString;
+- (NSString *)med_capitalizedFirstLetterString;
 
 @end

@@ -53,17 +53,25 @@
     return [self sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
 }
 
-- (NSArray *)med_shuffle
-{
-    NSMutableArray *mutable = [self mutableCopy];
-    [mutable med_shuffle];
-    return [mutable copy];
-}
-
 - (NSArray *)med_reverse
 {
     return [[self reverseObjectEnumerator] allObjects];
 }
+
+- (NSArray *)med_shuffle {
+    NSMutableArray *mutableArray = [NSMutableArray arrayWithArray:self];
+
+    const NSUInteger count = self.count;
+    for (NSUInteger i = 0; i < count - 1; ++i) {
+        const NSUInteger n = arc4random_uniform((UInt32)count - i) + i;
+        if (i != n) {
+            [mutableArray exchangeObjectAtIndex:i withObjectAtIndex:n];
+        }
+    }
+
+    return [NSArray arrayWithArray:mutableArray];
+}
+
 
 #pragma mark - Operator
 
@@ -128,19 +136,56 @@
     return accumulator;
 }
 
-@end
+- (NSArray *)med_minus:(NSArray *)anotherArray {
+    NSMutableSet *set = [NSMutableSet setWithArray:self];
+    NSSet *anotherSet = [NSSet setWithArray:anotherArray];
 
-@implementation NSMutableArray (MEDAdditions)
+    [set minusSet:anotherSet];
+    return [set allObjects];
+}
 
-- (void)med_shuffle
-{
-    const NSUInteger count = self.count;
-    for (NSUInteger i = 0; i < count - 1; ++i) {
-        const NSUInteger n = arc4random_uniform((UInt32)count - i) + i;
-        if (i != n) {
-            [self exchangeObjectAtIndex:i withObjectAtIndex:n];
-        }
+- (NSArray *)med_uniques {
+    return [[NSOrderedSet orderedSetWithArray:self] array];
+}
+
++ (NSArray *)med_flatten:(NSArray *)arraysOfArray {
+    NSMutableArray *results = [NSMutableArray array];
+    for (NSArray *array in arraysOfArray) {
+        [results addObjectsFromArray:array];
     }
+
+    return results;
+}
+
+- (NSArray *)med_groupedBy:(NSInteger)number {
+    if (number == 0) {
+        return @[self];
+    }
+
+    NSMutableArray *results = [NSMutableArray array];
+
+    NSInteger remainCount = self.count;
+    NSInteger count = 0;
+
+    while (count < self.count) {
+        NSRange range = NSMakeRange(count, MIN(number, remainCount));
+
+        NSArray *subArray = [self subarrayWithRange:range];
+        [results addObject:subArray];
+
+        remainCount -= range.length;
+        count += range.length;
+    }
+
+    return results;
+}
+
+- (NSArray *)med_subarrayWithRange:(NSRange)range {
+    if (range.location + range.length <= self.count) {
+        return [self subarrayWithRange:range];
+    }
+    
+    return nil;
 }
 
 @end

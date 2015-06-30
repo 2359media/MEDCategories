@@ -27,6 +27,6 @@
 - (BOOL)med_hasKey:(id)key;
 - (NSDictionary *)med_pick:(NSArray *)keys;
 - (NSDictionary *)med_omit:(NSArray *)key;
-
++ (NSDictionary *)med_flatten:(NSArray *)arrayOfDictionaries;
 
 @end

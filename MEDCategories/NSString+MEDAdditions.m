@@ -97,4 +97,17 @@
     return count;
 }
 
+- (NSString *)med_percentEscapedString {
+    return [self stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+}
+
+- (NSString *)med_capitalizedFirstLetterString {
+    if (self.length <= 1) {
+        return self.uppercaseString;
+    }
+
+    NSString *firstChar = [self substringToIndex:1].uppercaseString;
+    return [firstChar stringByAppendingString:[self substringFromIndex:1]];
+}
+
 @end

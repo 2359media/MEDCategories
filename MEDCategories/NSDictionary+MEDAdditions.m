@@ -118,4 +118,13 @@
     }];
 }
 
++ (NSDictionary *)med_flatten:(NSArray *)arrayOfDictionaries {
+    NSMutableDictionary *result = [NSMutableDictionary dictionary];
+    for (NSDictionary *dictionary in arrayOfDictionaries) {
+        [result addEntriesFromDictionary:dictionary];
+    }
+
+    return result;
+}
+
 @end
