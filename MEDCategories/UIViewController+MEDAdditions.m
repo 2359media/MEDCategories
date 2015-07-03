@@ -26,7 +26,9 @@
         if (path.length > 0) {
             storyboard = [UIStoryboard storyboardWithName:storyboardIpadName bundle:nil];
         }
-    } else {
+    }
+
+    if (!storyboard) {
         storyboard = [UIStoryboard storyboardWithName:name bundle:nil];
     }
 
