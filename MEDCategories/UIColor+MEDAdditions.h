@@ -16,7 +16,7 @@
 + (UIColor *)med_randomColor;
 
 + (UIColor *)med_halfBlackColor;
-+ (UIColor *)med_halfWhiteColo;
++ (UIColor *)med_halfWhiteColor;
 
 - (UIColor *)med_darkenColor;
 - (UIColor *)med_lightenColor;
