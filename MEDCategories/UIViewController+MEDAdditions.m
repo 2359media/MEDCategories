@@ -17,6 +17,22 @@
     return [storyboard instantiateViewControllerWithIdentifier:[self med_className]];
 }
 
++ (instancetype)med_instantiateFromDeviceStoryboardNamed:(NSString *)name {
+    UIStoryboard *storyboard;
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+        NSString *storyboardIpadName = [NSString stringWithFormat:@"%@_iPad", name];
+        NSString *path = [[NSBundle mainBundle] pathForResource:storyboardIpadName ofType:@"storyboardc"];
+
+        if (path.length > 0) {
+            storyboard = [UIStoryboard storyboardWithName:storyboardIpadName bundle:nil];
+        }
+    } else {
+        storyboard = [UIStoryboard storyboardWithName:name bundle:nil];
+    }
+
+    return [storyboard instantiateViewControllerWithIdentifier:[self med_className]];
+}
+
 - (void)med_addChildViewController:(UIViewController *)childVC containerView:(UIView *)containerView {
     [self addChildViewController:childVC];
     [containerView addSubview:childVC.view];

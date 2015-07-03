@@ -15,6 +15,9 @@
 + (UIColor *)med_colorWithRed:(CGFloat)red green:(CGFloat)green blue:(CGFloat)blue;
 + (UIColor *)med_randomColor;
 
++ (UIColor *)med_halfBlackColor;
++ (UIColor *)med_halfWhiteColo;
+
 - (UIColor *)med_darkenColor;
 - (UIColor *)med_lightenColor;
 - (UIColor *)med_darkenColor:(CGFloat)amount;

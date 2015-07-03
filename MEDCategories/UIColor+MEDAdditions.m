@@ -66,6 +66,14 @@
     return [UIColor colorWithHue:randomHue saturation:0.5 brightness:0.5 alpha:1];
 }
 
++ (UIColor *)med_halfBlackColor {
+    return [[UIColor blackColor] colorWithAlphaComponent:0.5];
+}
+
++ (UIColor *)med_halfWhiteColor {
+    return [[UIColor whiteColor] colorWithAlphaComponent:0.5];
+}
+
 - (UIColor *)med_darkenColor {
     return [self med_darkenColor:0.2];
 }
