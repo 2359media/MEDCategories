@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 2359Media. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+@import Foundation;
 
 @interface NSObject (MEDAdditions)
 

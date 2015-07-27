@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 2359Media. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+@import UIKit;
 
 @interface UIViewController (MEDAdditions)
 
@@ -15,6 +15,5 @@
 
 - (void)med_addChildViewController:(UIViewController *)childVC containerView:(UIView *)containerView;
 - (void)med_removeFromParentViewController;
-
 
 @end

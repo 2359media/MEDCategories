@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 2359Media. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+@import UIKit;
 
 @interface UIColor (MEDAdditions)
 
