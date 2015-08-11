@@ -14,22 +14,6 @@
     return [NSURL URLWithString:self];
 }
 
-- (BOOL)med_containsString:(NSString *) string {
-    NSRange range = [self rangeOfString:string options:NSCaseInsensitiveSearch];
-    return range.location != NSNotFound;
-}
-
-- (BOOL)med_isEmail {
-    BOOL stricterFilter = NO;
-
-    NSString *stricterFilterString = @"[A-Z0-9a-z\\._%+-]+@([A-Za-z0-9-]+\\.)+[A-Za-z]{2,4}";
-    NSString *laxString = @".+@([A-Za-z0-9-]+\\.)+[A-Za-z]{2}[A-Za-z]*";
-    NSString *emailRegex = stricterFilter ? stricterFilterString : laxString;
-    NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
-
-    return [emailTest evaluateWithObject:self];
-}
-
 - (NSString *)med_fixedLineBreakString {
     return [self stringByReplacingOccurrencesOfString:@"\\n" withString:@"\n"];
 }
@@ -68,8 +52,7 @@
     return parameters;
 }
 
-- (NSAttributedString *)med_htmlAttributedString
-{
+- (NSAttributedString *)med_htmlAttributedString {
     if (!self || [self length] == 0) {
         return nil;
     }
@@ -84,8 +67,7 @@
     return htmlAttributedString;
 }
 
-- (NSUInteger)med_wordCount
-{
+- (NSUInteger)med_wordCount {
     NSScanner *scanner = [NSScanner scannerWithString:self];
     NSCharacterSet *whiteSpace = [NSCharacterSet whitespaceAndNewlineCharacterSet];
     
@@ -108,6 +90,101 @@
 
     NSString *firstChar = [self substringToIndex:1].uppercaseString;
     return [firstChar stringByAppendingString:[self substringFromIndex:1]];
+}
+
+- (NSString *)med_stringByLeadingAndTrailingWhitespace {
+    return [self stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+}
+
+- (NSString *)med_stringByCleaningWhitespace {
+    NSString *newlineRemoved = [self stringByReplacingOccurrencesOfString:@"\n" withString:@"" options:0 range:NSMakeRange(0, self.length)];
+    NSString *squashed = [newlineRemoved stringByReplacingOccurrencesOfString:@"[ ]+" withString:@" " options:NSRegularExpressionSearch range:NSMakeRange(0, newlineRemoved.length)];
+    return [squashed stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+}
+
+- (NSString *)med_stringByRemovingCharactersInSet:(NSCharacterSet *)characterSet {
+    NSScanner *scanner = [NSScanner scannerWithString:self];
+    scanner.charactersToBeSkipped = characterSet;
+    
+    NSMutableString *aggredate = [NSMutableString new];
+    while (!scanner.isAtEnd) {
+        NSString *result;
+        if ([scanner scanUpToCharactersFromSet:characterSet intoString:&result]) {
+            [aggredate appendString:result];
+        }
+
+    }
+    
+    return aggredate;
+}
+
+- (NSString *)med_stringByRemovingCharactersNotInSet:(NSCharacterSet *)characterSet {
+    return [self med_stringByRemovingCharactersInSet:[characterSet invertedSet]];
+}
+
+- (NSString *)med_stringByAbbreviating {
+    if (self.length >= 1) {
+        return [[[self substringFromIndex:1] capitalizedStringWithLocale:[NSLocale currentLocale]]
+                stringByAppendingString:@"."];
+    }
+    
+    return self;
+}
+
+- (NSString *)med_abbreviatedName {
+    NSString *processedName = [self med_stringByCleaningWhitespace];
+    NSArray *nameComponents = [processedName componentsSeparatedByString:@"."];
+    
+    NSUInteger *componentCount = [nameComponents count];
+    NSMutableArray *processedNameComponents = [[NSMutableArray alloc] initWithCapacity:componentCount];
+    for (NSUInteger i = 0; i < componentCount; i++) {
+        if (i == 0) {
+            processedNameComponents[i] = nameComponents[i];
+        }
+        else {
+            processedNameComponents[i] = [nameComponents[i] med_stringByAbbreviating];
+        }
+    }
+
+    return [processedNameComponents componentsJoinedByString:@" "];
+}
+
+- (NSString *)med_stringByRemovingTrailingSlash {
+    if (self.length >= 1) {
+        if ([[self substringFromIndex:self.length - 1] isEqualToString:@"/"]) {
+            return [self substringToIndex:self.length - 1];
+        }
+        else {
+            return self;
+        }
+    }
+    
+    return self;
+}
+
+#pragma mark - Validation
+
+- (BOOL)med_containsString:(NSString *)string {
+    NSRange range = [self rangeOfString:string options:NSCaseInsensitiveSearch];
+    return range.location != NSNotFound;
+}
+
+- (BOOL)med_isEmail {
+    BOOL stricterFilter = NO;
+    
+    NSString *stricterFilterString = @"[A-Z0-9a-z\\._%+-]+@([A-Za-z0-9-]+\\.)+[A-Za-z]{2,4}";
+    NSString *laxString = @".+@([A-Za-z0-9-]+\\.)+[A-Za-z]{2}[A-Za-z]*";
+    NSString *emailRegex = stricterFilter ? stricterFilterString : laxString;
+    NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
+    
+    return [emailTest evaluateWithObject:self];
+}
+
+- (BOOL)med_isInteger {
+    NSCharacterSet *alphaNums = [NSCharacterSet decimalDigitCharacterSet];
+    NSCharacterSet *stringSet = [NSCharacterSet characterSetWithCharactersInString:self];
+    
+    return [alphaNums isSupersetOfSet:stringSet];
 }
 
 @end
