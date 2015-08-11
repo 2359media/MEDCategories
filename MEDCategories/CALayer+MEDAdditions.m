@@ -12,7 +12,9 @@
 
 - (void)med_enumerateSublayersWithBlock:(void (^)())block
 {
-    block(self);
+    if (block) {
+        block(self);
+    }
     
     for (CALayer *layer in self.sublayers) {
         [layer med_enumerateSublayersWithBlock:block];
