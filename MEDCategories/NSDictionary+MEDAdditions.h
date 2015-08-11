@@ -10,7 +10,15 @@
 
 @interface NSDictionary (MEDAdditions)
 
+#pragma mark - Validation
 - (id)med_safeObjectForKey:(NSString *)key;
+- (NSString *)med_stringForKey:(NSString *)key;
+- (NSString *)med_stringOrEmptyStringForKey:(NSString *)key;
+- (NSDictionary *)med_dictionaryForKey:(NSString *)key;
+- (NSArray *)med_arrayForKey:(NSString *)key;
+- (NSNumber *)med_numberForKey:(NSString *)key;
+- (NSURL *)med_urlForKey:(NSString *)key;
+- (BOOL)med_boolForKey:(NSString *)key;
 
 #pragma mark - Manipulation
 - (NSDictionary *)med_dictionaryByAddingEntriesFromDictionary:(NSDictionary *)dictionary;

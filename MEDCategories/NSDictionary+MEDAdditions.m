@@ -20,6 +20,66 @@
     return safeObject;
 }
 
+- (NSString *)med_stringForKey:(NSString *)key
+{
+    NSString *string = [self med_safeObjectForKey:key];
+    if ([string isKindOfClass:[NSString class]] && [string length] > 0) {
+        return string;
+    }
+    
+    return nil;
+}
+
+- (NSString *)med_stringOrEmptyStringForKey:(NSString *)key
+{
+    NSString *string = [self med_stringForKey:key];
+    if (!string) {
+        return @"";
+    }
+    
+    return nil;
+}
+
+- (NSDictionary *)med_dictionaryForKey:(NSString *)key
+{
+    NSDictionary *dictionary = [self med_safeObjectForKey:key];
+    if ([dictionary isKindOfClass:[NSDictionary class]] && [[dictionary allKeys] count] > 0) {
+        return dictionary;
+    }
+    
+    return nil;
+}
+
+- (NSArray *)med_arrayForKey:(NSString *)key
+{
+    NSArray *array = [self med_safeObjectForKey:key];
+    if ([array isKindOfClass:[NSArray class]] && [array count] > 0) {
+        return [self med_safeObjectForKey:key];
+    }
+    
+    return nil;
+}
+
+- (NSNumber *)med_numberForKey:(NSString *)key
+{
+    NSNumber *number = [self med_safeObjectForKey:key];
+    if ([number isKindOfClass:[NSNumber class]]) {
+        return number;
+    }
+    
+    return nil;
+}
+
+- (NSURL *)med_urlForKey:(NSString *)key
+{
+    return [NSURL URLWithString:[self med_safeObjectForKey:key]];
+}
+
+- (BOOL)med_boolForKey:(NSString *)key
+{
+    return [[self med_safeObjectForKey:key] boolValue];
+}
+
 #pragma mark - Manipulation
 - (NSDictionary *)med_dictionaryByAddingEntriesFromDictionary:(NSDictionary *)dictionary {
     NSMutableDictionary *result = [self mutableCopy];
