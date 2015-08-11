@@ -6,7 +6,7 @@
 //
 //
 
-/// Foundation Categories
+// Foundation Categories
 #import "NSArray+MEDAdditions.h"
 #import "NSCalendar+MEDAdditions.h"
 #import "NSData+MEDAdditions.h"
@@ -21,7 +21,7 @@
 #import "NSURL+MEDAdditions.h"
 #import "NSUserDefaults+MEDAdditions.h"
 
-/// UIKit Categories
+// UIKit Categories
 #import "UIColor+MEDAdditions.h"
 #import "UIImage+MEDAdditions.h"
 #import "UINavigationController+MEDAdditions.h"
@@ -30,6 +30,7 @@
 #import "UIViewController+MEDAdditions.h"
 #import "UIWebView+MEDAdditions.h"
 #import "UIView+MEDAdditions.h"
+#import "UIScrollView+MEDAdditions.h"
 
-/// Mantle Categories
+// Mantle Categories
 #import "MTLModel+MEDAdditions"
