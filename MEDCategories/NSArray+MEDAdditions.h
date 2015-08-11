@@ -27,6 +27,9 @@
 // reversing
 - (NSArray *)med_reverse;
 
+// random
+- (id)med_randomObject;
+
 #pragma mark - Operators
 
 - (NSInteger)med_sum;

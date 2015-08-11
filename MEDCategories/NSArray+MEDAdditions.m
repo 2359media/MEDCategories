@@ -72,6 +72,14 @@
     return [NSArray arrayWithArray:mutableArray];
 }
 
+- (id)med_randomObject {
+    NSUInteger count = self.count;
+    if (count > 0) {
+        return self[arc4random() % count];
+    }
+    
+    return nil;
+}
 
 #pragma mark - Operator
 
