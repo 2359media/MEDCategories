@@ -22,6 +22,7 @@
 #import "NSUserDefaults+MEDAdditions.h"
 
 // UIKit Categories
+#import "UIApplication+MEDAdditions.h"
 #import "UIColor+MEDAdditions.h"
 #import "UIImage+MEDAdditions.h"
 #import "UINavigationController+MEDAdditions.h"
