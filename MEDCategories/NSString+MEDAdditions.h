@@ -33,7 +33,8 @@
 
 // validation
 - (BOOL)med_containsString:(NSString *)string;
-- (BOOL)med_isEmail;
+- (BOOL)med_isValidEmail;
+- (BOOL)med_isValidEmailWithStrictFilter:(BOOL)strict;
 - (BOOL)med_isInteger;
 
 @end

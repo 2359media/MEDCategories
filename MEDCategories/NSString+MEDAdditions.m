@@ -169,11 +169,18 @@
     return range.location != NSNotFound;
 }
 
-- (BOOL)med_isEmail {
-    BOOL stricterFilter = NO;
+- (BOOL)med_isValidEmail
+{
+    return [self med_isValidEmailWithStrictFilter:YES];
+}
+
+- (BOOL)med_isValidEmailWithStrictFilter:(BOOL)strict
+{
+    // Reference: http://stackoverflow.com/questions/3139619/check-that-an-email-address-is-valid-on-ios
+    BOOL stricterFilter = strict;
+    NSString *stricterFilterString = @"[A-Za-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[A-Za-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?\\.)+[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?";
+    NSString *laxString = @".+@([A-Za-z0-9]+\\.)+[A-Za-z]{2}[A-Za-z]*";
     
-    NSString *stricterFilterString = @"[A-Z0-9a-z\\._%+-]+@([A-Za-z0-9-]+\\.)+[A-Za-z]{2,4}";
-    NSString *laxString = @".+@([A-Za-z0-9-]+\\.)+[A-Za-z]{2}[A-Za-z]*";
     NSString *emailRegex = stricterFilter ? stricterFilterString : laxString;
     NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
     
