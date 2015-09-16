@@ -34,10 +34,9 @@
     if (!key || key.length == 0) {
         return @[];
     }
-
+    
     NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:key
-                                                                     ascending:ascending
-                                                                      selector:@selector(localizedCaseInsensitiveCompare:)];
+                                                                     ascending:ascending];
     return [self sortedArrayUsingDescriptors:@[sortDescriptor]];
 }
 
