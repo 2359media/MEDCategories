@@ -19,7 +19,7 @@
 
 - (NSArray *)med_uniqueElementsWithKey:(NSString *)key
 {
-    if (!key || key.length == 0) {
+    if (!self || self.count == 0 || !key || key.length == 0) {
         return @[];
     }
 
@@ -31,7 +31,7 @@
 
 - (NSArray *)med_arraySortedByKey:(NSString *)key ascending:(BOOL)ascending
 {
-    if (!key || key.length == 0) {
+    if (!self || self.count == 0 || !key || key.length == 0) {
         return @[];
     }
     
