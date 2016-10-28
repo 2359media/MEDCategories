@@ -47,6 +47,7 @@
         if (![string isKindOfClass:[NSString class]]) {
             return nil;
         }
+        string = [string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
         return string.length > 0 ? [NSURL URLWithString:string] : nil;
     } reverseBlock:^id(NSURL *URL) {
         return [URL isKindOfClass:[NSURL class]] ? URL.absoluteString : nil;
